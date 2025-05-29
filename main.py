@@ -22,6 +22,13 @@ hr = hi
 mass = float(input("Mass of the object (kg): "))
 riemann = int(input("Number of subdivisions (e.g., 2 = 0.5s steps): "))
 
+# Initialize position and velocity arrays with initial values
+dxarray = [0]
+dyarray = [hi]
+vxarray = [vr * math.cos(thetai)]
+vyarray = [vr * math.sin(thetai)]
+
+
 # Initialize variables
 dr = 0
 t = 0
@@ -31,12 +38,15 @@ while hr > 0:
     # Decompose velocity
     vx = vr * math.cos(thetar)
     vy = vr * math.sin(thetar)
-
+    
     # Distance updates
     dt = 1 / riemann
     dr += vx * dt
     hr += vy * dt
-
+    dxarray.append(dr)
+    dyarray.append(hr)
+    vxarray.append(vx)
+    vyarray.append(vy)
     # Drag force
     drag = HALF * P * vr**2 * CD * A
     dragx = drag * math.cos(thetar)
@@ -54,3 +64,8 @@ while hr > 0:
     t += dt
 
 print(f"Final height: {hr:.2f} m. Final distance: {dr:.2f} m. Total flight time: {t:.2f} s.")
+print(dxarray)
+print(dyarray)
+print(vxarray)
+print(vyarray)
+
