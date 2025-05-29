@@ -6,7 +6,7 @@ P = 1.225  # Air density at 15°C (kg/m^3)
 PI = math.pi
 G = 9.80665
 HALF = 0.5
-
+SPRING = 873.45
 # Input
 r_cm = float(input("Radius of the object in cm: "))
 r = r_cm / 100  # Convert to meters
@@ -69,3 +69,6 @@ print(dyarray)
 print(vxarray)
 print(vyarray)
 
+print(HALF*mass*(vi**2), "J of launch energy")
+
+print((math.sqrt(HALF*mass*(vi**2)*SPRING))*.02, "Nm of Tork Required")
