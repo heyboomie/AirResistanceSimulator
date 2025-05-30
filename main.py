@@ -17,7 +17,7 @@ vr = vi
 theta_deg = float(input("Initial launch angle in degrees: "))
 thetai = math.radians(theta_deg)
 
-hi = float(input("Initial height (m): "))
+hi = .162*math.sin(thetai)
 hr = hi
 mass = float(input("Mass of the object (kg): "))
 riemann = int(input("Number of subdivisions (e.g., 2 = 0.5s steps): "))
